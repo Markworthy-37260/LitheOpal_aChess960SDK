@@ -25,7 +25,7 @@
               set_timeout(666)(()=>{ // TODO= something
 //
 
-  ;
+  console.log('OK :-)');
 
 //
 });
