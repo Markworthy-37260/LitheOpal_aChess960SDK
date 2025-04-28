@@ -10,7 +10,7 @@
         const set_timeout= (ms :number
                         )=>(fn :(d :any)=>any, ...args :any[]
                         )=> setTimeout(fn, ms, ...args);
-              set_timeout(0)(()= { // unnecessary
+              set_timeout(0)(()=> { // unnecessary
 //
 
 ;;interface Obje { [key :string] :any; };
