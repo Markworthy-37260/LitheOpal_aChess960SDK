@@ -189,9 +189,26 @@ _._= _;               const always= true; always; // const never= false; never;
  /*  THE vectors  */ ;_._._._._._._._._._._._._._._._; ((($ :(typeof atNow))=>{
  /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**75**/
 
+const stillBest= (best :string, test :string
+                   )=> ((b :string, t :string, d: number)=> (d<0 || !d && b<t))
+                       (best, test, test.length - best.length)? best: test;
+
+const myName___= (name :string, obje= globje
+              )=> Object.keys(obje)
+                        .filter((key)=> 1+key.search(new RegExp(name+'[$_]*')))
+                        .reduce(stillBest);
+
+const myName__= (genus :string, obje= globje
+            )=>(species :string
+            )=> myName___(genus + '_' + species, obje);
+
+const myName_= myName__('NML11th');
+const myName= myName_('LithePath');
+
   if (!always) {} else console.log('\n'
-                                 + JSON.stringify($.pathObje())
-                                 + '\n');
+                                 + JSON.stringify(myName) + '\n'
+                                 + JSON.stringify($) + '\n'
+                                 + JSON.stringify($.pathObje()) + '\n');
 
  /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**75**/
 
