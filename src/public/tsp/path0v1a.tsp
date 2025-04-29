@@ -190,8 +190,9 @@ _._= _;               const always= true; always; // const never= false; never;
  /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**75**/
 
 const stillBest= (best :string, test :string
-                   )=> ((b :string, t :string, d: number)=> (d<0 || !d && b<t))
-                       (best, test, test.length - best.length)? best: test;
+              )=> (    (b :string, t :string, d: number
+                    )=> (d<0 || !d && b<t)
+                  )        (best, test, test.length - best.length)? best: test;
 
 const myName___= (name :string, obje= globje
               )=> Object.keys(obje)
@@ -199,8 +200,8 @@ const myName___= (name :string, obje= globje
                         .reduce(stillBest);
 
 const myName__= (genus :string, obje= globje
-            )=>(species :string
-            )=> myName___(genus + '_' + species, obje);
+             )=>(species :string
+             )=> myName___(genus + '_' + species, obje);
 
 const myName_= myName__('NML11th');
 const myName= myName_('LithePath');
