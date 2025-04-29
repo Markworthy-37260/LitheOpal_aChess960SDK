@@ -148,7 +148,8 @@ const toExport= // IIFE
 ((()=>{
 
   return {
-    atPlay, set_timeout,
+    atPlay, set_timeout, pathObje: ((it :string/**/= patch4decomposer /**/
+                                 )=> decomposer(atPlay()? it: pathname)),
   };
 
 })());
@@ -193,17 +194,16 @@ const addedLib= // IIFE
 
  /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**75**/
 
-if (!always) {} else console.log('\n'
-                               + JSON.stringify($)
-                               + '\n'
-                                );
+  if (!always) {} else console.log('\n'
+                                 + JSON.stringify($.pathObje())
+                                 + '\n');
 
  /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**75**/
 
-if (! !always) {} else // IIFE
+  if (! !always) {} else // IIFE
   (((test :string)=>{ const _ :stobje_t_= undefined as unknown as stobje_t_; _;
                       console.log("It's " + test);
-})('test'));
+  })('test'));
 
  /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**75**/
 
