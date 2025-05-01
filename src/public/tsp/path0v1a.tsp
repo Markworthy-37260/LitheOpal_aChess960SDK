@@ -7,8 +7,8 @@
 
 ;interface AssociativeArray<RangeType> { [key :string] :RangeType; };
 
-((  ( globje_ :(()=>(AssociativeArray<any>))
-)=> { 
+((  ( globje_ :(()=>AssociativeArray<any>)
+)=> {
       const globje= globje_(); globje;
       const stobje= { _: {}, __: {}, }; stobje; // TODO= FIX= types
     ;;type stobje_t_= typeof stobje; // TODO?= MOVE&USE (or LOSE)
@@ -16,7 +16,7 @@
       const veracity= true; const falsity= false; veracity; falsity;
       function atPlay() :boolean { return (pathname)==='/play/'; } // atPlay;
       const set_timeout= (ms :number
-                      )=>(fn :(d :any)=>any, ...args :any[]
+                      )=>(fn :(d :any)=>any, ...args :any[] // TODO= RESEARCH
                       )=> setTimeout(fn, ms, ...args);
 //
             set_timeout(0)(()=>{
@@ -35,7 +35,7 @@ _._= _;               const always= true; always; // const never= false; never;
   const decomposure= /(?:\/-?@?|-?\d+(?:\.\d+)?[-@]|-?[A-Za-z]\w*[-@]|-_\w*[-@]|_[-\.].*?_\._[-@])/g;
   const decompose= (it :string, NO= '#NONONO:-') :RegExpMatchArray=> (it.match(decomposure) || [NO+it]);
   const precomposer= (it :string) :string=> ('/' + ((it||'')+'/').replace(/\//g, '@/'));
-  const decofilter= (it :string, at :number, sa :string[]) :boolean => { at; sa; // discard "/..."
+  const decofilter= (it :string, at :number, sa :string[]) :boolean=> { at; sa; // discard "/..."
     return it.charCodeAt(0) !== 47;
   };
   const decomposing= (it :string) :number=>{ // return the type-number of the substring
@@ -64,7 +64,7 @@ _._= _;               const always= true; always; // const never= false; never;
   const f_out= function (this :number[], v :string, i :number, a :string[]) :void { v; a;
     const t= this[i]; t;
   };/**/
-  type eo_t_= { _  :AssociativeArray<number>;
+;;type eo_t_= { _  :AssociativeArray<number>;
                 __ :AssociativeArray<string>;
                 it :(number|string|null);     };
   ;
@@ -141,7 +141,7 @@ _._= _;               const always= true; always; // const never= false; never;
                       console.log("At 138 it's " + '\"' + JSON.stringify(it) + '\"');
   })(location.pathname));
   
-   /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**75**/
+ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**75**/
   
   const toExport= // IIFE
   ((()=>{
@@ -156,7 +156,7 @@ _._= _;               const always= true; always; // const never= false; never;
   const addedLib= // IIFE
   (((idealName :string, libToAdd :(typeof toExport))=>{
   
-    ;interface Obje { [key :string] :any; };
+  ;;interface Obje { [key :string] :any; };
     const globje= (()=>{}).constructor('return this;')() as Obje;
   
     if (globje['NO_' + idealName]) {} else {
@@ -189,33 +189,85 @@ _._= _;               const always= true; always; // const never= false; never;
  /*  THE vectors  */ ;_._._._._._._._._._._._._._._._; ((($ :(typeof atNow))=>{
  /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**75**/
 
-const stillBest= (best :string, test :string
-              )=> (    (b :string, t :string, d: number
-                    )=> (d<0 || !d && b<t)
-                  )        (best, test, test.length - best.length)? best: test;
+  const theBest= (best :string, test :string
+                )=> (    (b :string, t :string, d: number
+                      )=> (d<0 || !d && b<t)
+                    )      (best, test, test.length - best.length)? best: test;
 
-const myName___= (name :string, obje= globje
+  const aName__= (name :string, obje= globje
               )=> Object.keys(obje)
                         .filter((key)=> 1+key.search(new RegExp(name+'[$_]*')))
-                        .reduce(stillBest);
+                        .reduce(theBest);
 
-const myName__= (genus :string, obje= globje
+  const aName_= (genus :string, obje= globje
              )=>(species :string
-             )=> myName___(genus + '_' + species, obje);
+             )=> aName__(genus + '_' + species, obje);
 
-const myName_= myName__('NML11th');
-const myName= myName_('LithePath');
+  const aName= aName_('NML11th');
+//const myName= myName_('LithePath');
 
   if (!always) {} else console.log('\n'
-                                 + JSON.stringify(myName) + '\n'
+                                 + JSON.stringify(aName('LithePath')) + '\n'
                                  + JSON.stringify($) + '\n'
                                  + JSON.stringify($.pathObje()) + '\n');
+
+//for (let i= 44, j= 1; --i; ) console.log(''+(j= (j>>>0<<1>>>0|j>>>1)));
+//for (let i= 4, j= 1; --i; ) console.log(''+(j= (j>>>0<<1>>>0|j>>>1)>>>0));
+//for (let i= 44, j= 0; --i; ) console.log(''+(j= ((j<<1>>>0|1)>>>0)+(j>>>1)));
+
+((()=>{
+  const throwNaN= (whether :boolean // TODO= PICK= always throw?????
+               )=>(it? :number) :number=>{
+                    if (!whether) {} else throw 'NaN/risk on 20250430 at 2005';
+                    return it ?? NaN;    };
+                                             const NaN_= throwNaN(false); NaN_;
+
+  const us01526Factory= (sh: number)=>{ const k= sh&31; // or 31 if need >25 days(!)
+    return (it :number
+        )=> ( ( it+= (it>>>k|1)>>>0 ) < (-1>>>0)? it: NaN_() );
+                                      };
+  const strive= (dost :(it :AssociativeArray<any>)=>void,
+                 latest4species :(it: string)=>string,
+                 ms16_ :(it :number)=>number,
+                 globje_= globje,
+             )=>(get_ :string
+             )=>{
+                  let ms16= 0;
+                  const f= (g :(g_ :(it: any)=>any)=>()=>void
+                        )=>(
+                        )=> { const got= latest4species(get_);
+console.log('Loaded '+got+' after '+(ms16>>16)+'ms');
+                              if (got) dost(globje_[got]);
+                              else set_timeout((ms16= ms16_(ms16))>>16)(g(g));
+                            };
+                  const ff= f(f); ff();
+                };
+ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**75**/
+
+  function go(it :number) { const g= us01526Factory(it); let i, j= 0;
+                            const k= 999999; let t= 0;
+    for (i= k; !!(j= g(j)) && --i; ) t+= j>>>16;
+    if (i) {} else if (falsity) throw 'Excessive iter.'; else return +Infinity;
+    return /**/ (t/60>>>0)/1000.0; /*/ k-i /**/ ; }
+
+//  console.log('#1= '+((()=>{ const n= -1, p= n>>>1; return n>>>0|p; })()));
+
+  console.log('#2=..'+((()=>{ let rv= '';
+                              for (let i= 19; --i>=0;) rv+= ', '+i+': '+go(i);
+                              return rv; })()));
+
+  function st(it :AssociativeArray<any>) {
+    console.log(JSON.stringify((it as typeof atNow).pathObje())); }
+
+  strive(st, aName, us01526Factory(3))('LithePath');
+
+})());
 
  /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**75**/
 
   if (! !always) {} else // IIFE
   (((test :string)=>{ const _ :stobje_t_= undefined as unknown as stobje_t_; _;
-                      console.log("It's " + test);
+                      console.log("It's a " + test);
   })('test'));
 
  /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**75**/
