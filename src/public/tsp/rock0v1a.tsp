@@ -84,8 +84,6 @@ console.log('Loaded '+got+' after '+(ms16>>16)+'ms');
   
   })());
   
- /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**75**/
-  
   const toExport= // IIFE
   ((()=>{
   
@@ -133,14 +131,13 @@ console.log('Loaded '+got+' after '+(ms16>>16)+'ms');
                                  + JSON.stringify($.nmlName('LitheRock'))+'!\n'
                                  + JSON.stringify($.nmlName('LithePath'))+'!\n'
                                  + JSON.stringify(''+$$.throwNaN(!1)())+'!\n');
-
 ((()=>{
+
   function dur(it :number) {  const g= $.theLava._15ns26sequence(it); let j= 0;
                               const k= 999999; let i, t= 0;
     for (i= k; !!(j= g(j)) && --i; ) t+= j>>>16;
     if (i) {} else if (falsity) throw 'Excessive iter.'; else return +Infinity;
     return /**/ (t/60>>>0)/1000.0; /*/ k-i /**/ ; }
- /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**75**/
 
 //for (let i= 44, j= 1; --i; ) console.log(''+(j= (j>>>0<<1>>>0|j>>>1)));
 //for (let i= 4, j= 1; --i; ) console.log(''+(j= (j>>>0<<1>>>0|j>>>1)>>>0));
@@ -152,6 +149,7 @@ console.log('Loaded '+got+' after '+(ms16>>16)+'ms');
                               for (let i= 19; --i>=0;) rv+= ', '+i+': '+dur(i);
                               return rv;
                             })()));
+
   function st(it :AssociativeArray<any>) {
     console.log(JSON.stringify((it as typeof atNow).theLava.throwNaN(true)()));
                                          }
