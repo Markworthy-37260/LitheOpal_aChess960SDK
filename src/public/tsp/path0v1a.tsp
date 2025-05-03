@@ -16,7 +16,7 @@
       const veracity= true; const falsity= false; veracity; falsity;
       function atPlay() :boolean { return (pathname)==='/play/'; } // atPlay;
       const set_timeout= (ms :number
-                      )=>(fn :(d :any)=>any, ...args :any[] // TODO= RESEARCH
+                      )=>(fn :(d :any[])=>void, ...args :any[] // TODO= IMPORT
                       )=> setTimeout(fn, ms, ...args);
 //
             set_timeout(0)(()=>{
@@ -189,6 +189,8 @@ _._= _;               const always= true; always; // const never= false; never;
  /*  THE vectors  */ ;_._._._._._._._._._._._._._._._; ((($ :(typeof atNow))=>{
  /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**75**/
 
+((()=>{ if (veracity) {} else {
+
   const theBest= (best :string, test :string
                 )=> (    (b :string, t :string, d: number
                       )=> (d<0 || !d && b<t)
@@ -269,6 +271,8 @@ console.log('Loaded '+got+' after '+(ms16>>16)+'ms');
   (((test :string)=>{ const _ :stobje_t_= undefined as unknown as stobje_t_; _;
                       console.log("It's a " + test);
   })('test'));
+
+}})());
 
  /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**75**/
  /*  END vectors  */ _._._._._._._._._._._._._._._._._._._; return; })(atNow));
