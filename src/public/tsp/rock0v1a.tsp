@@ -7,27 +7,6 @@
 
 ;interface AssociativeArray<RangeType> { [key :string] :RangeType; };
 
-//
-
- /**\
-//;type safe_setTimeout_t_= ()=>number;
-//;type any_timeout_t_= typeof setTimeout;
-//const not_timeout :typeof setTimeout= (fn :((...out :any[])=>void) | string,
-//                                                  _ :number, ...args :any[]
-//                      )=>{ if ('string' !== typeof fn) fn(...args);
-//                           return NaN; }
-const cut_timeout= (fn :(...out :any[])=>void, ...args :any[]
-                )=> fn(...args);
-const syncSetTimeout: typeof setTimeout= (func, _, ...args)=> {
-  if (typeof func !== "string") func(...args); else throw 'No eval() here';
-  return NaN;
-};
-      const not_timeout= (fn :settable_t_, ...args :any[] // TODO?= ?
-                      )=> notTimeout(fn, NaN, ...args);
- /**/
-
-//
-
 ((  ( globje_ :(()=>AssociativeArray<any>)
 )=> {
       const globje= globje_(); globje;
@@ -114,7 +93,8 @@ _._= _;               const always= true; always; // const never= false; never;
                          )=>{ const got= latest4species(get_);
 console.log('Loaded '+got+' after '+(ms16>>16)+'ms');
                               if (got) dost(globje_[got]);
-                              else set_timeout((ms16= ms16_(ms16))>>16)(g(g));
+                              else if (Number.isNaN(ms16)) { console.error('Gave up after ages'); }
+                              else set_timeout((ms16= ms16_(ms16))>>>16)(g(g));
                             };
                    const ff= f(f); ff();
                  };
@@ -195,10 +175,14 @@ console.log('Loaded '+got+' after '+(ms16>>16)+'ms');
                               for (let i= 19; --i>=0;) rv+= ', '+i+': '+dur(i);
                               return rv;
                             })()));
-  function st(it :AssociativeArray<any>) {
-    console.log(JSON.stringify((it as typeof atNow).theLava.throwNaN(true)()));
-                                         }
-  $.waitFor(st, $.nmlName, $$._15ns26sequence(3))('LitheRock'); // TODO?= Path?
+
+  const something2Do= (doMore =false
+                   )=>(it :AssociativeArray<any>)=>{
+/**\if (doMore) ( $.waitFor(something2Do(), $.nmlName, $$._15ns26sequence(1)) )
+                                                                 ('LithePath');
+/**/console.log(JSON.stringify((it as typeof atNow).theLava.throwNaN(true)()));
+                                                   };
+  $.waitFor(something2Do(true), $.nmlName, $$._15ns26sequence(2))('LitheRock');
 
 })());
 
@@ -222,4 +206,3 @@ console.log('Loaded '+got+' after '+(ms16>>16)+'ms');
 //
 )); // END outermost
 //
-
