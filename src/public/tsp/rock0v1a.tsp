@@ -1,23 +1,68 @@
 
  /**/ type on253a30= undefined; // censor
 
-// censored
+// script src="/my_name.js" fetchpriority="high"  // ALSO= integrity
 
  /**/ type on253m01= undefined; // uncensor
 
 ;interface AssociativeArray<RangeType> { [key :string] :RangeType; };
+
+//
+
+ /**\
+//;type safe_setTimeout_t_= ()=>number;
+//;type any_timeout_t_= typeof setTimeout;
+//const not_timeout :typeof setTimeout= (fn :((...out :any[])=>void) | string,
+//                                                  _ :number, ...args :any[]
+//                      )=>{ if ('string' !== typeof fn) fn(...args);
+//                           return NaN; }
+const cut_timeout= (fn :(...out :any[])=>void, ...args :any[]
+                )=> fn(...args);
+const syncSetTimeout: typeof setTimeout= (func, _, ...args)=> {
+  if (typeof func !== "string") func(...args); else throw 'No eval() here';
+  return NaN;
+};
+      const not_timeout= (fn :settable_t_, ...args :any[] // TODO?= ?
+                      )=> notTimeout(fn, NaN, ...args);
+ /**/
+
+//
 
 ((  ( globje_ :(()=>AssociativeArray<any>)
 )=> {
       const globje= globje_(); globje;
       const pathname= globje['location'].pathname;
       const veracity= true; const falsity= false; veracity; falsity;
-      function atPlay() :boolean { return (pathname)==='/play/'; } ; atPlay;
-      const set_timeout= (ms :number
-                      )=>(fn :(d :any)=>any, ...args :any[] // TODO= RESEARCH
-                      )=> setTimeout(fn, ms, ...args);
+      function atPlay() :boolean { return (pathname)==='/play/'; } ; atPlay; /*
+      const set_timeout_out= (ms :number
+                          )=>(fn :(...out :any[])=>void, ...args :any[]
+                          )=> setTimeout(fn, ms, ...args); set_timeout_out;/**/
+    ;;type settable_t_= (..._out :any[]) => void;
+      const notTimeout :typeof setTimeout= (setfn, rv, ...args
+                                        )=> ( (setfn as settable_t_)(...args),
+                                                                  (rv ?? NaN));
+
+      const has_timeout= (may :typeof setTimeout, ms :number
+                      )=>(setfn :settable_t_, ...args :any[] // TODO?= ?
+                      )=> may(setfn, ms, ...args);
+
+      const not_timeout /**/ :typeof has_timeout /**/
+          = (_ :typeof setTimeout, __ :number|null)=> {
+//if (veracity) throw 'Not at 51 on 20250503 at 0046'; // TODO= better
+return undefined as unknown as (setfn: settable_t_, ...args: any[]) => number;
+                                                      };
+
+      const may_timeout= (ms :number|null)=> has_timeout(
+            'number'===typeof ms && !Number.isNaN(ms)? setTimeout: notTimeout,
+                                                                    ms ?? NaN);
+
+      const set_timeout /**/ :typeof may_timeout /**/
+          = (ms :number|null
+                      )=> ('number'===typeof ms && !Number.isNaN(ms)?
+                                        has_timeout:
+                                        not_timeout)(setTimeout, ms as number);
 //
-            set_timeout(0)(()=>{
+            may_timeout(null)(()=>{
 //
 ;interface _t_ { _: _t_ }; const _ :_t_= { _: (undefined as unknown as _t_), };
 _._= _;               const always= true; always; // const never= false; never;
@@ -36,7 +81,7 @@ _._= _;               const always= true; always; // const never= false; never;
   const theName= (name :string, obje= globje
               )=> Object.keys(obje)
                         .filter((key)=> 1+key.search(new RegExp(name+'[$_]*')))
-                        .reduce(theBest);
+                        .reduce(theBest, '');
 
   const gloName= (genus :string, obje= globje
               )=>(species :string
@@ -88,7 +133,7 @@ console.log('Loaded '+got+' after '+(ms16>>16)+'ms');
   ((()=>{
   
     return {
-      atPlay, set_timeout, gloName, nmlName, waitFor, theLava,
+      atPlay, may_timeout, set_timeout, gloName, nmlName, waitFor, theLava,
     };
   
   })());
@@ -131,6 +176,7 @@ console.log('Loaded '+got+' after '+(ms16>>16)+'ms');
                                  + JSON.stringify($.nmlName('LitheRock'))+'!\n'
                                  + JSON.stringify($.nmlName('LithePath'))+'!\n'
                                  + JSON.stringify(''+$$.throwNaN(!1)())+'!\n');
+
 ((()=>{
 
   function dur(it :number) {  const g= $.theLava._15ns26sequence(it); let j= 0;
@@ -149,7 +195,6 @@ console.log('Loaded '+got+' after '+(ms16>>16)+'ms');
                               for (let i= 19; --i>=0;) rv+= ', '+i+': '+dur(i);
                               return rv;
                             })()));
-
   function st(it :AssociativeArray<any>) {
     console.log(JSON.stringify((it as typeof atNow).theLava.throwNaN(true)()));
                                          }
@@ -177,3 +222,4 @@ console.log('Loaded '+got+' after '+(ms16>>16)+'ms');
 //
 )); // END outermost
 //
+
