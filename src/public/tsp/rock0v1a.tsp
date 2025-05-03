@@ -93,7 +93,7 @@ _._= _;               const always= true; always; // const never= false; never;
                          )=>{ const got= latest4species(get_);
 console.log('Loaded '+got+' after '+(ms16>>16)+'ms');
                               if (got) dost(globje_[got]);
-                              else if (Number.isNaN(ms16)) { console.error('Gave up after ages'); }
+                              else if (Number.isNaN(ms16)) console.warn('NaN');
                               else set_timeout((ms16= ms16_(ms16))>>>16)(g(g));
                             };
                    const ff= f(f); ff();
