@@ -91,7 +91,7 @@ _._= _;               const always= true; always; // const never= false; never;
                    const f= (g :(g_ :(it: any)=>any)=>()=>void
                          )=>(
                          )=>{ const got= latest4species(get_);
-console.log('Loaded '+got+' after '+(ms16>>16)+'ms');
+console.log('Loaded '+got+' after '+(ms16>>>16)+'ms');
                               if (got) dost(globje_[got]);
                               else if (Number.isNaN(ms16)) console.warn('NaN');
                               else set_timeout((ms16= ms16_(ms16))>>>16)(g(g));
