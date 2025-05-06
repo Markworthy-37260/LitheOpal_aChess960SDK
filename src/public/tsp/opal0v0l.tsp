@@ -1,6 +1,6 @@
 
 ;interface AssociativeArray<RangeType> { [key :string] :RangeType; }
-
+;
 //
  /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**75**/
 //
@@ -30,10 +30,9 @@ function theCB(it_ :string, is_ :AssociativeArray<any>) :void {
         )=>AssociativeArray<AssociativeArray<unknown>>; };
 if (path_lib) {} else throw 'Not loaded at 31: '+it_;
     const path_obj= path_lib['pathObje']();
+console.log('Obtained: ' + JSON.stringify(path_obj));
 if (path_obj) {} else throw 'Not fitted at 33: pathObje()';
-    stobje._= path_obj['_']; console.warn('_ IS ' + JSON.stringify(stobje._));
-    stobje.__= path_obj['__'];
-
+    stobje._= path_obj['_'];  stobje.__= path_obj['__'];
     } break;
     default: throw 'Not at 38 on 20250506 at 0006';
   }
@@ -183,6 +182,34 @@ const a_rank= (unrotated :number
 
  /*\ \**/ /**\ \**/
 
+const rank09__= (it :number, mi= 201)=>{
+  const so= it>=0;
+  const un= so? it: 0-it;
+  const by= it/un;
+  let at= un<<1;
+  it= mi - by*9;
+  let rv= '';
+  for (let i= 9+1; --i; at= it+= by<<1) rv+= '&#'+(at>>>1)+';&nbsp;';
+  rv+= '&#'+un+';';
+  return rv;
+};
+
+;interface rank09_i_ { [key :number] :string; };
+
+const rank09_= () :rank09_i_=>{ return {
+  0: rank09__(-9673),
+  1: rank09__(9678),
+  8: rank09__(9673),
+  9: rank09__(-9678),
+}; };
+
+const rank09=
+((()=>{
+  let once= 2;
+  let obje= undefined as unknown as rank09_i_;
+  return ()=>((once>>= 1)? obje= rank09_(): obje);
+})());
+
 async function dostAsyncly(elem :HTMLParagraphElement, field :HTMLTextAreaElement, what :string, move :string) {
   const alpha= await fetch(what); // const response = await fetch(url);
   if (alpha.ok) {} else {
@@ -197,9 +224,11 @@ async function dostAsyncly(elem :HTMLParagraphElement, field :HTMLTextAreaElemen
   if (unrotated<2 && reply && reply.length>>>1===2) {} else return beta;
   game+= move + reply + '&';  field.value= '';
   const board= gamma.slice(-9, -1).map(a_rank(unrotated)).join('<br />');
-  const upper= unrotated? '◉ a b c d e f g h ◉': '◎ h g f e d c b a ◎';
-  const lower= unrotated? '◎ a b c d e f g h ◎': '◉ h g f e d c b a ◉';
-  const rslt= upper + '<br />' + board + '<br />' + lower;
+//  const upper= unrotated? '◉ a b c d e f g h ◉': '◎ h g f e d c b a ◎';
+//  const lower= unrotated? '◎ a b c d e f g h ◎': '◉ h g f e d c b a ◉';
+//  const rslt= upper + '<br />' + board + '<br />' + lower;
+const edges= rank09();
+const rslt= edges[9^unrotated] + '<br />' + board + '<br />' + edges[unrotated];
 
   if (elem) elem.innerHTML= rslt; else console.log(rslt);
 
@@ -239,6 +268,7 @@ console.log("At 281 it's an " + typeof (
     ('','e2e4')
   ));
 
+console.log(''+JSON.stringify(rank09()));
 //
 }); // END timeout
 
@@ -253,5 +283,4 @@ console.log("At 281 it's an " + typeof (
 //
 
 ;type domaintypeof_dostSyncly= (at :string, it :string)=>void;
-;
 
