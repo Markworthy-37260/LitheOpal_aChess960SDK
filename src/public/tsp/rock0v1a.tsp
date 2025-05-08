@@ -10,10 +10,28 @@
 ((  ( globje_ :(()=>AssociativeArray<any>)
 )=> {
       const globje= globje_(); globje;
-      const pathname= globje['location'].pathname;
+      const pathname= globje['location'].pathname; pathname;
       const veracity= true; const falsity= false; veracity; falsity;
-      function atPlay() :boolean { return (pathname)==='/play/'; } ; atPlay; /*
-      const set_timeout_out= (ms :number
+      function atPlay() :boolean { return (pathname)==='/play/'; } atPlay;
+//
+      const document__ :Document= globje['document']; document__;
+const document= undefined; document;
+//      const elemById= document.getElementById;
+      const set_timeout_ole= (ms :number
+                          )=>(fn :(d :any[])=>void, ...args :any[] // TODO= all
+                          )=> setTimeout(fn, ms, ...args); set_timeout_ole;
+      const getDocElementById= (gdoc :Document= document__,
+                                okok :HTMLElement= undefined as unknown as any
+                          )=>(it :string)=> (gdoc.getElementById(it) ?? okok);
+      const getElementById= getDocElementById(); getElementById;
+ /**\
+const getDocElementById_out= (ok :HTMLElement
+                          )=>(gdoc :Document= document
+                          )=>(it :string)=> (gdoc.getElementById(it) ?? ok);
+ /**/
+ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**75**/
+//
+ /**\ const set_timeout_out= (ms :number
                           )=>(fn :(...out :any[])=>void, ...args :any[]
                           )=> setTimeout(fn, ms, ...args); set_timeout_out;/**/
     ;;type settable_t_= (..._out :any[]) => void;
@@ -98,13 +116,78 @@ console.log('Loaded '+got+' after '+(ms16>>>16)+'ms');
                             };
                    const ff= f(f); ff();
                  };
+
+//
+ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**75**/
+//
+    ;;type cbf_t_= (em :string[], it? :AssociativeArray<any>)=>typeof it;
+    ;;type s2s_t_= (it :string)=>string;
+    ;;type s2e_t_= (it :string)=>HTMLElement;
+      const w4d_cb_eg_= (gEl :s2e_t_, fn0? :s2s_t_
+                ) :cbf_t_=> /**\ const w4d_cb_eg= /**/ (em :string[],
+                                   it :AssociativeArray<any>= globje
+                ) :typeof it=>{                                 const suf= '_';
+        const fn1= (q :typeof it, v :string
+                )=>(q[v+suf]= gEl(v), q);
+        const fn2= fn0? (q :typeof it, v :string
+                )=>(q[fn0(v)]= gEl(v), q): fn1; /**/
+console.warn( ''
+  + 'Adding \"' + em.map(fn0? fn0: (s :string)=> (s+suf)).join('\",\"')
+  + '\" to ' + Object.keys(it).join() );        /**/
+                                                return em.reduceRight(fn2, it);
+      };
+//
+ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**75**/
+//
+      const wait4doc= (((document_fb)=>{ //const document= undefined; document;
+                                       //const document_= undefined; document_;
+
+  const unready= 1 << "uninitialized".length | 1 << "loading".length; // vector
+
+  const isready= (document_ :Document= document_fb
+              )=> !(unready & 1<<document_.readyState.length);
+
+  const wait4doc_= (s2s? :s2s_t_, gDEl /**\ :typeof getDocElementById /**/ = getDocElementById
+                )=>(document_ :Document= document_fb
+//                )=>(cb :cbf_t_
+                )=>( ...names :string[])=>{
+    let once= 2;
+    const gEl= gDEl(document_);
+    const cb= w4d_cb_eg_(gEl, s2s);
+
+    const ignite= () :void=>{
+      console.log("Document is " + document_.readyState); // Remove this line later, obviously
+      if ((once>>= 1)===0) { console.log("We ignited again, but who cares?"); } // idempotent
+      else {
+        console.log("We're igniting!"); // Remove this line later, obviously
+//        globje__['para1_']= document_.getElementById('para1');
+        cb(names);
+//        globje__['text1_']= document_.getElementById('text1');
+        console.log("We ignited!"); // Remove this line later, obviously
+      }
+    };
+    const rscListener= (event :Event
+                    )=>{ if (event && isready(document_)) ignite(); };
+    document_.addEventListener('readystatechange', rscListener);
+    if (isready(document_)) ignite();
+  };
+  return wait4doc_;
+
+
+                                       })(document__));
+
+
+//function readiness_out() { return 1 << document.readyState.length; } // use length as hash
+//
+
+
  /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**75**/
   
   const theLava= // IIFE
   ((()=>{
   
     return {
-      throwNaN, _15ns26sequence
+      throwNaN, _15ns26sequence, wait4doc,
     };
   
   })());
@@ -157,7 +240,7 @@ console.log('Loaded '+got+' after '+(ms16>>>16)+'ms');
                                  + JSON.stringify($.nmlName('LithePath'))+'!\n'
                                  + JSON.stringify(''+$$.throwNaN(!1)())+'!\n');
 
-((()=>{
+((async ()=>{ // TODO= LOSE= async - needing this is a bit of a mystery!?!
 
   function dur(it :number) {  const g= $.theLava._15ns26sequence(it); let j= 0;
                               const k= 999999; let i, t= 0;
@@ -177,7 +260,7 @@ console.log('Loaded '+got+' after '+(ms16>>>16)+'ms');
                             })()));
 
   const something2Do= (doMore =false
-                   )=>(it :AssociativeArray<any>)=>{
+                   )=>(it :AssociativeArray<any>)=>{ doMore;
 /**\if (doMore) ( $.waitFor(something2Do(), $.nmlName, $$._15ns26sequence(1)) )
                                                                  ('LithePath');
 /**/console.log(JSON.stringify((it as typeof atNow).theLava.throwNaN(true)()));
@@ -188,9 +271,11 @@ console.log('Loaded '+got+' after '+(ms16>>>16)+'ms');
 
  /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**75**/
 
-  if (! !always) {} else // IIFE
+  if (!!!always) {} else // IIFE
   (((test :string)=>{ ;
                       console.log("It's still just a " + test);
+                      $$.wait4doc(undefined)()('para1', 'text1');
+                            // TODO?= PASS= callback component
   })('test'));
 
  /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**75**/
@@ -206,3 +291,4 @@ console.log('Loaded '+got+' after '+(ms16>>>16)+'ms');
 //
 )); // END outermost
 //
+
