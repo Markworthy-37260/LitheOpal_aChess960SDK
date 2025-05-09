@@ -25,6 +25,14 @@ const allLoaded :{ [key :string] :{ [key :string] :any; }; }= {};
 //
 function theCB(it_ :string, is_ :AssociativeArray<any>) :void {
   switch (it_) {
+    case 'LitheRock': {
+        const rock_lib = is_;
+        if (rock_lib) {} else throw 'Not loaded at 31: ' + it_;
+        const lava_lib= rock_lib['theLava'];
+        console.log('Obtained: ' + JSON.stringify(lava_lib));
+        if (lava_lib) {} else throw 'Not fitted at 33: theLava';
+lava_lib.wait4doc(undefined)()('para1', 'text1');
+    } break;
     case 'LithePath': {
     const path_lib= is_ as { [key :string] :(_? :string
         )=>AssociativeArray<AssociativeArray<unknown>>; };
@@ -75,8 +83,9 @@ if (!!!veracity) {} else ((()=>{
                           allLoaded[s]= o;        console.log(s + ' seems OK');
                                                                     return s;
                                                                   };
-        if (!at) {} else if (libs[todo+2]) cb(link(), obj);
-                    else { $= obj; $$= obj.theLava; link(); }
+        if (!at) {;;} else {
+          if (libs[todo+2]) {} else { $= obj; $$= obj.theLava; }
+          cb(link(), obj); }
         if (!it) {} else return wait4(it, to, wait);
         return undefined as unknown; // TODO= tighten-up types
       };
@@ -158,10 +167,10 @@ const charCodes= (s :string)=> ( 'FINALLY:-\n'
 );
 
 // SYMS= " ·•□■○●◎◉△▲☆★◇◆ ☖☗ ♥♠♣ ↑↓ ±× †‡ ·• ←↔→ ⇐⇔⇒ wʙx ⚐⚑ ♔♚♕♛♖♜♗♝♘♞♙♟"
-const the_squares_= (pref :string, twice= 2       // syms= pref+'△▲ohnofu□■ck☆★○●◇◆itbrokesomehow_•_±×◎↑↓';
+const the_squares__= (pref :string, once= 2       // syms= pref+'△▲ohnofu□■ck☆★○●◇◆itbrokesomehow_•_±×◎↑↓';
               )=>(idy :number                     // syms= pref+'♗♝○hn◉fu♔♚ck♘♞♕♛♖♜itbrokesomehow_·•●_±×◎↑↓';
               )=>(it_ :string, idx :number)=>{ const syms= pref+'△▲○hn●fu□■ck⚐⚑♡♥◇◆itbrokesomehow_•_±×◎↑↓☖☗';
-  if (!!!veracity) {} else if ((twice>>>= 1)===0) {} else { console.log(charCodes(syms)); }
+  if (!!!veracity) {} else if ((once>>>= 1)===0) {} else { console.log(charCodes(syms)); }
   const it= it_.trim();  if (idx+7>>>3^1) return it; // 1..8 only
   const alph= ( ((idx+idy&1? ' ': '-')+it).slice(-1).charCodeAt(0)+(it.length!==2? 0: 32) )&127;
   const alph2= alph>>>5, alph5= alph&31; // 1..3 <=> sq, wh, bl;  whsq, blsq <=> 32, 45; etc; etc
@@ -169,9 +178,16 @@ const the_squares_= (pref :string, twice= 2       // syms= pref+'△▲ohnofu□
 // console.log("It's a '"+sym+"': "+it_);
   return sym;
 };
+const the_squares_= (_ :string)=> { const f= makePieces(stobje._);
+  return the_squares__(''
+    + f('x', 0) + '' + f('p', 6) + '' + f('b', 4) + 'ohnofu'
+    + f('k', 1) + 'ck'
+    + f('n', 5) + '' + f('q', 2) + '' + f('r', 3) + 'itbrokesomehow'
+  );
+};
 const a_square= the_squares_(' ·○●'); // TODO= '◎' and NBSP
 const o_square= the_squares_(' ·↓↑');
-const e_square= the_squares_(' ·↑↓');  a_square(0)('', 0);
+const e_square= the_squares_(' ·↑↓');  a_square(0)('', 0);  console.warn('(PREV)');
 
 const a_rank= (unrotated :number
            )=>(it :string, idy :number)=>{
@@ -191,6 +207,7 @@ const rank09__= (it :number, mi= 201)=>{
   let rv= '';
   for (let i= 9+1; --i; at= it+= by<<1) rv+= '&#'+(at>>>1)+';&nbsp;';
   rv+= '&#'+un+';';
+console.warn(rv);
   return rv;
 };
 
