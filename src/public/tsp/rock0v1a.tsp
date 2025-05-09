@@ -240,7 +240,7 @@ console.warn( ''
                                  + JSON.stringify($.nmlName('LithePath'))+'!\n'
                                  + JSON.stringify(''+$$.throwNaN(!1)())+'!\n');
 
-((async ()=>{ // TODO= LOSE= async - needing this is a bit of a mystery!?!
+((()=>{ // TODO= LOSE= async - needing this is a bit of a mystery!?!
 
   function dur(it :number) {  const g= $.theLava._15ns26sequence(it); let j= 0;
                               const k= 999999; let i, t= 0;
@@ -260,7 +260,7 @@ console.warn( ''
                             })()));
 
   const something2Do= (doMore =false
-                   )=>(it :AssociativeArray<any>)=>{ doMore;
+                   )=>async (it :AssociativeArray<any>)=>{ doMore;
 /**\if (doMore) ( $.waitFor(something2Do(), $.nmlName, $$._15ns26sequence(1)) )
                                                                  ('LithePath');
 /**/console.log(JSON.stringify((it as typeof atNow).theLava.throwNaN(true)()));
