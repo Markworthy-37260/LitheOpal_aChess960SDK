@@ -1,3 +1,4 @@
+ /**\ vim: set syntax=typescript: /**/
 
  /**/ type on253a30= undefined; // censor
 
@@ -116,6 +117,68 @@ console.log('Loaded '+got+' after '+(ms16>>>16)+'ms');
                             };
                    const ff= f(f); ff();
                  };
+
+//
+ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**75**/
+//
+const wait4all= ((()=>{
+  //
+  let genus_ :string, gen_spec :string; // NB: Careful: these are assigned late
+  const hits :{ [key :string] :{ [key :string] :any; }; }= {};
+  //
+  const prepare= (prfx :string, genus= 'NML11th', self= 'Rock'
+              )=>(...list :string[])=>{
+    genus_= genus+= '_'; genus_; gen_spec= genus+prfx+self;
+    list[list.length]= self;  list[list.length]= '';
+    return list.map((it :string)=>(it? prfx+it: ''));
+                                      };
+  //
+  const execute= ((()=>{
+    //
+    let $ :{ [key :string] :Function; }, $$ :{ [key :string] :Function; };
+    //
+    if (veracity) {} else {
+      const   _out :typeof $= undefined as unknown as any; _out;
+      const __out :typeof $$= undefined as unknown as any; __out; }
+    //
+    const dothejob= (cb :Function, libs :string[], wait0 :number)=>{
+      //
+      const rock_1st= globje[gen_spec] as { [key :string] :any; };
+      $= rock_1st;  $$= rock_1st.theLava;
+      const wait4= (it :string, to :Function, wait :number // TODO= NIX nmlName
+                )=> ( $.waitFor(to, $.nmlName, $$._15ns26sequence(wait)) )(it);
+      const dothejob_= (todo :number, wait= 1
+                    )=>(obj :AssociativeArray<any>)=>{
+                        console.log('Doing #'+todo+' in'+JSON.stringify(libs));
+        const at= libs[todo];
+        const it= libs[--todo];         // console.log('\n= '+it+' after '+at);
+        const to= dothejob_(todo);  const link= (s= at, o= obj)=> {
+                          if (s) {} else throw 'Not at 62 on 20250505 at 2355';
+                          console.log(s + ' seems OK');             hits[s]= o;
+                                                                    return s;
+                                                                  };
+        if (!at) {;;} else {
+          if (libs[todo+2]) {} else { $= obj; $$= obj.theLava; }
+          cb(link(), obj); }
+        if (!it) {} else wait4(it, to, wait);
+        return hits;
+      };
+      return dothejob_(libs.length-1, wait0);
+    };
+    return dothejob;
+    //
+  })());
+  //
+;;type cbf_t_= (it_ :string, is_ :AssociativeArray<any>)=>void;
+  return (theCB :cbf_t_, ...list :string[])=>{
+    if (list.length && !list[0]) {} else throw 'Not at 99 on 20250510 at 1431';
+    return execute(theCB, prepare('Lithe')(...list), 0)(undefined as any);
+  }
+  //
+})());
+//
+ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**75**/
+//
 
 //
  /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**75**/
