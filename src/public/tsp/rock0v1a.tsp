@@ -1,4 +1,4 @@
- /**\ vim: set syntax=typescript: /**/
+ /**\ vim: set syntax=typescript :miv -+- the ROCK -:= /**/
 
  /**/ type on253a30= undefined; // censor
 
@@ -250,7 +250,7 @@ console.warn( ''
   ((()=>{
   
     return {
-      throwNaN, _15ns26sequence, wait4doc,
+      throwNaN, _15ns26sequence, wait4doc, wait4all,
     };
   
   })());
@@ -296,14 +296,14 @@ console.warn( ''
  /*  THE vectors  */ ;_._._._._._._._._._._._._._._._; ((($ :(typeof atNow))=>{
  /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**75**/
 
-  const $$= $.theLava;
+const $$= $.theLava; $$; if (! !always) {} else { // BEGAN w/ $$; TODO= atPlay
 
   if (!always) {} else console.log('\n'
                                  + JSON.stringify($.nmlName('LitheRock'))+'!\n'
                                  + JSON.stringify($.nmlName('LithePath'))+'!\n'
                                  + JSON.stringify(''+$$.throwNaN(!1)())+'!\n');
 
-((()=>{ // TODO= LOSE= async - needing this is a bit of a mystery!?!
+                                                  ((()=>{      // BEGAN IIFE
 
   function dur(it :number) {  const g= $.theLava._15ns26sequence(it); let j= 0;
                               const k= 999999; let i, t= 0;
@@ -330,7 +330,7 @@ console.warn( ''
                                                    };
   $.waitFor(something2Do(true), $.nmlName, $$._15ns26sequence(2))('LitheRock');
 
-})());
+                                                        })()); // ENDED IIFE
 
  /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**75**/
 
@@ -340,6 +340,8 @@ console.warn( ''
                       $$.wait4doc(undefined)()('para1', 'text1');
                             // TODO?= PASS= callback component
   })('test'));
+
+                                                  } // ENDED w/ $$
 
  /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**75**/
  /*  END vectors  */ _._._._._._._._._._._._._._._._._._._; return; })(atNow));
