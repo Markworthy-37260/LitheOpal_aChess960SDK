@@ -1,3 +1,4 @@
+ /**\ vim: set syntax=typescript :miv -+- very alpha MATE -:= /**/
 
 ;interface AssociativeArray<RangeType> { [key :string] :RangeType; }
 ;
@@ -21,40 +22,43 @@
 //
  /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**75**/
 //
-const allLoaded :{ [key :string] :{ [key :string] :any; }; }= {};
-//
 function theCB(it_ :string, is_ :AssociativeArray<any>) :void {
   switch (it_) {
     case 'LitheRock': {
-        const rock_lib = is_;
-        if (rock_lib) {} else throw 'Not loaded at 31: ' + it_;
-        const lava_lib= rock_lib['theLava'];
-        console.log('Obtained: ' + JSON.stringify(lava_lib));
-        if (lava_lib) {} else throw 'Not fitted at 33: theLava';
-lava_lib.wait4doc(undefined)()('para1', 'text1');
+      const rock_lib = is_;
+      if (rock_lib) {} else throw 'Not loaded at 31: ' + it_;
+      const lava_lib= rock_lib['theLava'];
+console.log('Obtained lava[](): ' + JSON.stringify(lava_lib));
+      if (lava_lib) {} else throw 'Not fitted at 33: theLava';
+      lava_lib.wait4doc(undefined)()('para1', 'text1'); // the HTML elems
     } break;
     case 'LithePath': {
-    const path_lib= is_ as { [key :string] :(_? :string
-        )=>AssociativeArray<AssociativeArray<unknown>>; };
-if (path_lib) {} else throw 'Not loaded at 31: '+it_;
-    const path_obj= path_lib['pathObje']();
-console.log('Obtained: ' + JSON.stringify(path_obj));
-if (path_obj) {} else throw 'Not fitted at 33: pathObje()';
-    stobje._= path_obj['_'];  stobje.__= path_obj['__'];
+      const path_lib= is_ as { [key :string] :(_? :string
+          )=>AssociativeArray<AssociativeArray<unknown>>; };
+if (path_lib) {} else throw 'Not loaded at 38: '+it_;
+      const path_obj= path_lib['pathObje']();
+console.log('Obtained path[][]: ' + JSON.stringify(path_obj));
+if (path_obj) {} else throw 'Not fitted at 41: pathObje()';
+      stobje._= path_obj['_'];  stobje.__= path_obj['__'];  calling(); // forward
     } break;
-    default: throw 'Not at 38 on 20250506 at 0006';
+    default: throw 'Not a known Lithe at 44 on 20250510 at 2254';
   }
 }
 //
  /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**75**/
 //
-if (!!!veracity) {} else ((()=>{
+if (! !veracity) {
+  globje.NML11th_LitheRock.theLava.wait4all(theCB, '', 'Path');
+} else ((()=>{                                                // OUTOUTOUT:=...
   //
   let genus_ :string, gen_spec :string; // NB: Careful: these are assigned late
+  const allLoaded :{ [key :string] :{ [key :string] :any; }; }= {};
+  //
+  { const out= undefined as unknown as stobje_t_; out; }
   //
   const prepare= (prfx :string, genus= 'NML11th', self= 'Rock'
               )=>(...list :string[])=>{
-    genus_= genus+= '_'; gen_spec= genus+prfx+self;
+    genus_= genus+= '_'; gen_spec= genus+prfx+self; genus_;
     list[list.length]= self;  list[list.length]= '';
     return list.map((it :string)=>(it? prfx+it: ''));
                                       };
@@ -101,11 +105,12 @@ if (!!!veracity) {} else ((()=>{
 //
  /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**75**/
 //
-if (falsity) {} else
-            set_timeout_old(666)(()=>{ // still unnecessary?
+function calling() {
+            set_timeout_old(0)(()=>{ // still unnecessary?
 //
 
-if (atPlay()) {} else set_timeout_old(101)(()=> {
+if (atPlay()) {} else set_timeout_old(1984)(()=>{
+
   const goaw= globje as Window;  const gdoc= goaw.document;
   const para1= gdoc.getElementById("para1") as HTMLParagraphElement | null;
 
@@ -116,7 +121,7 @@ if (atPlay()) {} else set_timeout_old(101)(()=> {
  /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**75**/
 
 ;type mP_t_= (s :string, n :number) => string; // TODO?= LOSE somehow
-;
+
 const makePieces= (overrides :AssociativeArray<number>, prefix= '_') :mP_t_=> { // TODO= ( not {
   const qf= (s :string, n? :number
 /**/ | null /**/ )=> {
@@ -288,6 +293,7 @@ console.log("At 281 it's an " + typeof (
 console.log(''+JSON.stringify(rank09()));
 //
 }); // END timeout
+} // END calling
 
 //
 })(   // FROM:= const globje= ( ()=>{} ).constructor('return this;')() as Obje;
