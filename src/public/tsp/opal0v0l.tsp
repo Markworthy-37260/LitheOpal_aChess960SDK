@@ -13,7 +13,9 @@
       const globje= globje_(); globje;
       const stobje= { _: {}, __: {}, }; stobje; // TODO= FIX= types
     ;;type stobje_t_= typeof stobje; // TODO?= MOVE&USE (or LOSE)
-
+((()=>{
+    { const out= undefined as unknown as stobje_t_; out; }
+})());
       const veracity= true; const falsity= false; veracity; falsity;
       function atPlay() :boolean { return (location.pathname)==='/play/'; }
       const set_timeout_old= (ms :number
@@ -47,23 +49,22 @@ if (path_obj) {} else throw 'Not fitted at 41: pathObje()';
 //
  /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**\ \**/ /**75**/
 //
-if (! !veracity) {
-  globje.NML11th_LitheRock.theLava.wait4all(theCB, '', 'Path');
-} else ((()=>{                                                // OUTOUTOUT:=...
+if (! !veracity) ((async (it)=> (
+  set_timeout_old(0)(it.NML11th_LitheRock.theLava.wait4all, theCB, '', 'Path')
+  //globje.NML11th_LitheRock.theLava.wait4all(theCB, '', 'Path');
+                                ))(globje)); else ((()=>{     // OUTOUTOUT:=...
   //
   let genus_ :string, gen_spec :string; // NB: Careful: these are assigned late
   const allLoaded :{ [key :string] :{ [key :string] :any; }; }= {};
   //
-  { const out= undefined as unknown as stobje_t_; out; }
-  //
-  const prepare= (prfx :string, genus= 'NML11th', self= 'Rock'
+  const prepare_out= (prfx :string, genus= 'NML11th', self= 'Rock'
               )=>(...list :string[])=>{
     genus_= genus+= '_'; gen_spec= genus+prfx+self; genus_;
     list[list.length]= self;  list[list.length]= '';
     return list.map((it :string)=>(it? prfx+it: ''));
                                       };
   //
-  const execute= ((()=>{
+  const execute_out= ((()=>{
     //
     let $ :{ [key :string] :Function; }, $$ :{ [key :string] :Function; };
     //
@@ -97,9 +98,9 @@ if (! !veracity) {
     };
     return dothejob;
     //
-  })());
+  })()); execute_out; prepare_out;
   //
-  execute(theCB, prepare('Lithe')('', 'Path'), 0)(undefined as unknown as any);
+  //execute(theCB, prepare('Lithe')('', 'Path'), 0)(undefined as unknown as any);
   //
 })());
 //
@@ -171,10 +172,10 @@ const charCodes= (s :string)=> ( 'FINALLY:-\n'
   + '\n' + toLose({}, s)
 );
 
-// SYMS= " ·•□■○●◎◉△▲☆★◇◆ ☖☗ ♥♠♣ ↑↓ ±× †‡ ·• ←↔→ ⇐⇔⇒ wʙx ⚐⚑ ♔♚♕♛♖♜♗♝♘♞♙♟"
-const the_squares__= (pref :string, once= 2       // syms= pref+'△▲ohnofu□■ck☆★○●◇◆itbrokesomehow_•_±×◎↑↓';
-              )=>(idy :number                     // syms= pref+'♗♝○hn◉fu♔♚ck♘♞♕♛♖♜itbrokesomehow_·•●_±×◎↑↓';
-              )=>(it_ :string, idx :number)=>{ const syms= pref+'△▲○hn●fu□■ck⚐⚑♡♥◇◆itbrokesomehow_•_±×◎↑↓☖☗';
+
+const the_squares__= (syms :string, once= 2
+              )=>(idy :number
+              )=>(it_ :string, idx :number)=>{
   if (!!!veracity) {} else if ((once>>>= 1)===0) {} else { console.log(charCodes(syms)); }
   const it= it_.trim();  if (idx+7>>>3^1) return it; // 1..8 only
   const alph= ( ((idx+idy&1? ' ': '-')+it).slice(-1).charCodeAt(0)+(it.length!==2? 0: 32) )&127;
@@ -183,16 +184,16 @@ const the_squares__= (pref :string, once= 2       // syms= pref+'△▲ohnofu□
 // console.log("It's a '"+sym+"': "+it_);
   return sym;
 };
-const the_squares_= (_ :string)=> { const f= makePieces(stobje._);
+const the_squares_= (_not_used= NaN)=> { const f= makePieces(stobje._);
   return the_squares__(''
     + f('x', 0) + '' + f('p', 6) + '' + f('b', 4) + 'ohnofu'
     + f('k', 1) + 'ck'
     + f('n', 5) + '' + f('q', 2) + '' + f('r', 3) + 'itbrokesomehow'
   );
 };
-const a_square= the_squares_(' ·○●'); // TODO= '◎' and NBSP
-const o_square= the_squares_(' ·↓↑');
-const e_square= the_squares_(' ·↑↓');  a_square(0)('', 0);  console.warn('(PREV)');
+const a_square= the_squares_(); // TODO= NBSP
+const o_square= the_squares_();
+const e_square= the_squares_();  a_square(0)('', 0);  console.warn('(PREV)');
 
 const a_rank= (unrotated :number
            )=>(it :string, idy :number)=>{
@@ -246,8 +247,8 @@ async function dostAsyncly(elem :HTMLParagraphElement, field :HTMLTextAreaElemen
   if (unrotated<2 && reply && reply.length>>>1===2) {} else return beta;
   game+= move + reply + '&';  field.value= '';
   const board= gamma.slice(-9, -1).map(a_rank(unrotated)).join('<br />');
-//  const upper= unrotated? '◉ a b c d e f g h ◉': '◎ h g f e d c b a ◎';
-//  const lower= unrotated? '◎ a b c d e f g h ◎': '◉ h g f e d c b a ◉';
+//  const upper= unrotated? '@ a b c d e f g h @': '@ h g f e d c b a @'; // fish 1st
+//  const lower= unrotated? '@ a b c d e f g h @': '@ h g f e d c b a @'; // fish 2nd
 //  const rslt= upper + '<br />' + board + '<br />' + lower;
 const edges= rank09();
 const rslt= edges[9^unrotated] + '<br />' + board + '<br />' + edges[unrotated];
@@ -306,4 +307,3 @@ console.log(''+JSON.stringify(rank09()));
 //
 
 ;type domaintypeof_dostSyncly= (at :string, it :string)=>void;
-
