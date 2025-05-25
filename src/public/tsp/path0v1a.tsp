@@ -1,4 +1,4 @@
-
+/* vim: set syntax=typescript: */
  /**/ type on253a27= undefined; // censor
 
 // censored
